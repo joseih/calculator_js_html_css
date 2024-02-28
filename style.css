@@ -1,0 +1,40 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+
+button {
+  font-size: 50px;
+  margin: 2px;
+  width: 60px;
+}
+
+#container-pai {
+  border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+}
+#container-botoes {
+  display: flex;
+  flex-direction: column;
+}
+#btn-delete,
+#btn-equals {
+  width: 47%;
+}
+
+.line {
+  border: 1px seagreen solid;
+}
+
+#resultado {
+}
+input {
+  margin: 10px;
+  height: 30px;
+}
