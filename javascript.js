@@ -17,6 +17,9 @@ function subtract(x, y) {
 }
 
 function multiply(x, y) {
+  if (y == 0) {
+    return 0;
+  }
   return parseInt(x) * parseInt(y);
 }
 
@@ -40,15 +43,17 @@ function operate(firstNum, secondNum, operator) {
 }
 
 buttonEquals.addEventListener("click", (x) => {
-  result.value = operate(firstNum, secondNum, operator);
+  firstNum = operate(firstNum, secondNum, operator);
+  result.value = firstNum;
+  secondNum = 0;
+  operator = null;
 });
 
 buttonDelete.addEventListener("click", (x) => {
-  //reset all
-  result.value = "";
   firstNum = 0;
   secondNum = 0;
   operator = null;
+  result.value = "";
 });
 
 for (const iterator of buttonNumber) {
@@ -67,6 +72,13 @@ for (const iterator of buttonNumber) {
 for (const iterator of buttonOperator) {
   iterator.addEventListener("click", (x) => {
     //add operator into variable and inputform
+    if (firstNum != 0 && secondNum != 0 ) {
+      firstNum = operate(firstNum, secondNum, operator);
+      result.value = firstNum;
+      secondNum = 0;
+      operator = null;
+      
+    }
     operator = iterator.textContent;
     result.value += operator;
   });
